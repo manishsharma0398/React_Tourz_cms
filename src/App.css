@@ -1,22 +1,750 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Poppins:300,400,500,600&display=swap");
 .App {
+  font-family: "Poppins", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media only screen and (min-width: 1200px) {
+  .App {
+    max-width: 1240px;
+    -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+  .App {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 500.1px) {
+  .App {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 110px 250px 4fr 1fr;
+        grid-template-columns: 110px 250px 4fr 1fr;
+    -ms-grid-rows: 60px 750px;
+        grid-template-rows: 60px 750px;
+        grid-template-areas: "navbar1 navbar1 navbar1 navbar1" "selectors navbar2 contents contents";
+  }
+  .navbar1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: navbar1;
+    height: 100%;
+    padding: 0 50px 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .navbar1-leftDiv, .navbar1-rightDiv {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+  }
+  .navbar1-leftDiv-logo, .navbar1-leftDiv-searchForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navbar1-leftDiv-logo {
+    width: 110px;
+    border-right: 1px solid #252841;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .navbar1-leftDiv-logo .logo {
+    font-weight: 400;
+    font-size: 25px;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .navbar1-leftDiv-logo .logo:hover {
+    color: #2c47c8;
+    text-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  .navbar1-leftDiv-searchForm {
+    margin-left: 20px;
+  }
+  .navbar1-leftDiv-searchForm .searchForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .navbar1-leftDiv-searchForm .searchForm img {
+    margin-right: 5px;
+  }
+  .navbar1-leftDiv-searchForm .searchForm_input {
+    border: none;
+    border-bottom: 1px solid #252841;
+  }
+  .navbar1-rightDiv {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navbar1-rightDiv-notification, .navbar1-rightDiv-userType, .navbar1-rightDiv-userImg {
+    padding-right: 18px;
+  }
+  .navbar1-rightDiv-notification {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .navbar1-rightDiv-notification img {
+    width: 20px;
+  }
+  .navbar1-rightDiv-userType {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .navbar1-rightDiv-userType span {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar1-rightDiv-userType .userName {
+    color: #2c47c8;
+    font-weight: 500;
+    line-height: 17px;
+  }
+  .navbar1-rightDiv-userType .userType {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .navbar1-rightDiv-userImg {
+    position: relative;
+    padding-right: 0;
+  }
+  .navbar1-rightDiv-userImg img {
+    height: 40px;
+    border-radius: 50%;
+  }
+  .navbar1-rightDiv-userImg::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: green;
+    border-radius: 50%;
+    right: 0;
+  }
+  .navbar1-toggler {
+    display: none;
+  }
+  .navbar2 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: navbar2;
+    border-top: 1px solid #252841;
+  }
+  .selectors {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: selectors;
+    border-right: 1px solid #252841;
+    padding-top: 180px;
+  }
+  .selectors .home,
+  .selectors .settings {
+    padding: 35px 44px;
+    position: relative;
+    cursor: pointer;
+  }
+  .selectors .home:hover,
+  .selectors .settings:hover {
+    background-color: rgba(106, 137, 204, 0.2);
+  }
+  .selectors .home img,
+  .selectors .settings img {
+    height: 20px;
+    width: 20px;
+  }
+  .selectors .home.active::before,
+  .selectors .settings.active::before {
+    content: "";
+    position: absolute;
+    border-left: 3px solid #2c47c8;
+    top: 0;
+    left: -2px;
+    height: 100%;
+  }
+  .contents {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+    grid-area: contents;
+    border-left: 1px solid #252841;
+    border-top: 1px solid #252841;
+  }
+  .activities {
+    grid-area: activities;
+    border-left: 1px solid #252841;
+    border-top: 1px solid #252841;
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .App .navbar2,
+  .App .contents {
+    padding: 0 25px;
+  }
+  .App .selectors,
+  .App .activities {
+    display: none;
+  }
+  .App .navbar1 {
+    background-color: white;
+    width: 100%;
+    -webkit-box-shadow: inset 0 -1px 0 0 rgba(204, 204, 204, 0.96);
+            box-shadow: inset 0 -1px 0 0 rgba(204, 204, 204, 0.96);
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 25px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: 60px;
+        grid-template-rows: 60px;
+        grid-template-areas: "photo logo toggler";
+  }
+  .App .navbar1.show {
+    background-color: #252841;
+    height: 60px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .App .navbar1-leftDiv, .App .navbar1-rightDiv, .App .navbar1-toggler {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .App .navbar1-leftDiv {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: logo;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .App .navbar1-leftDiv-searchForm {
+    display: none;
+  }
+  .App .navbar1-rightDiv {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: photo;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .App .navbar1-rightDiv-notification, .App .navbar1-rightDiv-userType {
+    display: none;
+  }
+  .App .navbar1-rightDiv-userImg {
+    height: 100%;
+    padding-right: 0;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .App .navbar1-rightDiv-userImg img {
+    height: 38px;
+    border-radius: 50%;
+  }
+  .App .navbar1-rightDiv-userImg::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background-color: green;
+    border-radius: 50%;
+    right: -4px;
+    top: 13px;
+  }
+  .App .navbar1-toggler {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: toggler;
+  }
+  .App .navbar1-toggler .wrapper {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 2px 0 2px 8px;
+  }
+  .App .navbar1-toggler .circle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+  .App .navbar1-toggler .line {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: black;
+    border-radius: 8px;
+    -webkit-transition: all cubic-bezier(0.26, 0.1, 0.27, 1.55) 0.35s;
+    transition: all cubic-bezier(0.26, 0.1, 0.27, 1.55) 0.35s;
+  }
+  .App .navbar1-toggler .top {
+    top: 20%;
+  }
+  .App .navbar1-toggler .middle {
+    top: 44%;
+    width: 60%;
+    left: 40%;
+  }
+  .App .navbar1-toggler .bottom {
+    top: 69%;
+  }
+  .App .navbar1-toggler .icon.close .top {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 48%;
+    width: 90%;
+    background-color: white;
+  }
+  .App .navbar1-toggler .icon.close .middle {
+    top: 48%;
+    width: 0;
+    background-color: white;
+  }
+  .App .navbar1-toggler .icon.close .bottom {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    top: 48%;
+    width: 90%;
+    background-color: white;
+  }
+  .App .navbar2 {
+    background-color: #252841;
+    position: fixed;
+    width: 100%;
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    overflow: hidden;
+    z-index: 10;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    top: 59px;
+  }
+  .App .navbar2.show {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  .App .navbar2 .navbar-nav {
+    margin-top: 20px;
+  }
+  .App .navbar2 .navbar-nav .nav-link,
+  .App .navbar2 .navbar-nav .dropdown-menu,
+  .App .navbar2 .navbar-nav .nav-link-dropdown {
+    color: white;
+    font-family: "Poppins", sans-serif;
+  }
+  .App .navbar2 .navbar-nav .nav-item.active::before,
+  .App .navbar2 .navbar-nav .nav-dropdown.active::before {
+    display: none;
+  }
+  .App .navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu.expand,
+  .App .navbar2 .navbar-nav .nav-dropdown.expand .dropdown-menu.expand {
+    padding-top: 3px;
+  }
+  .App .navbar2 .navbar-nav .nav-item .nav-link {
+    padding: 5px 0 5px 20px;
+  }
+  .App .navbar2 .navbar-nav .nav-dropdown .dropdown-menu {
+    padding: 5px 0 5px 20px;
+    display: block;
+  }
+  .App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links {
+    list-style-type: none;
+  }
+  .App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown a.nav-link-dropdown {
+    padding-top: 4px;
+  }
+  .App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown:last-child {
+    padding-bottom: 5px;
+  }
+  .App .contents {
+    margin-top: 50px;
+  }
+}
+
+.navbar2 {
+  padding-top: 130px;
+}
+
+.navbar2 a {
+  text-decoration: none;
+  color: #252841;
+}
+
+.navbar2 .navbar-nav {
+  list-style: none;
+}
+
+.navbar2 .navbar-nav .nav-item,
+.navbar2 .navbar-nav .nav-dropdown {
+  position: relative;
+  margin-bottom: 1px;
+}
+
+.navbar2 .navbar-nav .nav-item:hover,
+.navbar2 .navbar-nav .nav-dropdown:hover {
+  background-color: rgba(106, 137, 204, 0.2);
+}
+
+.navbar2 .navbar-nav .nav-item.active::before,
+.navbar2 .navbar-nav .nav-dropdown.active::before {
+  content: "";
+  position: absolute;
+  border-left: 3px solid #2c47c8;
+  top: 0;
+  left: -2px;
+  height: 100%;
+}
+
+.navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu.expand,
+.navbar2 .navbar-nav .nav-dropdown.expand .dropdown-menu.expand {
+  padding: 15px 0 0 20px;
+}
+
+.navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu,
+.navbar2 .navbar-nav .nav-item.active .nav-link {
+  color: #2c47c8;
+}
+
+.navbar2 .navbar-nav .nav-item .nav-link {
+  padding: 15px 0 15px 20px;
+  display: block;
+}
+
+.navbar2 .navbar-nav .nav-dropdown .dropdown-menu {
+  padding: 15px 0 15px 20px;
+  display: block;
+}
+
+.navbar2 .navbar-nav .nav-dropdown .dropdown-menu span {
+  position: relative;
+}
+
+.navbar2 .navbar-nav .nav-dropdown .dropdown-menu span::after {
+  content: "";
+  position: absolute;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  top: 52%;
+  right: -16px;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+
+.navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links {
+  list-style-type: none;
+  height: 0;
+  overflow: hidden;
+}
+
+.navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown a.nav-link-dropdown {
+  padding-left: 40px;
+  padding-top: 6px;
+  display: block;
+  font-size: 14px;
+}
+
+.navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown:last-child {
+  padding-bottom: 12px;
+}
+
+.navbar2 .navbar-nav .nav-dropdown.expand .dropdown-menu span::after {
+  border: solid #2c47c8;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  top: 65%;
+  right: -16px;
+  -webkit-transform: translateY(-50%) rotate(-135deg);
+          transform: translateY(-50%) rotate(-135deg);
+}
+
+.navbar2 .navbar-nav .nav-dropdown.expand ul.dropdown-menu-links {
+  height: 100%;
+  overflow: visible;
+}
+
+.contents {
+  padding: 63px 70px;
+}
+
+.contents .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contents .pageNo-info {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.contents table.booking-table {
+  margin-bottom: 40px;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  border-spacing: 0 10px;
+}
+
+.contents table.booking-table tr.table-head th {
+  border-bottom: 1px solid #252841;
+  text-align: left;
+  height: 40px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.contents table.booking-table tr.table-contents:hover {
+  background-color: rgba(106, 137, 204, 0.2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contents table.booking-table tr.table-contents td {
+  text-align: center;
+}
+
+.contents table.booking-table tr.table-contents td .status {
+  margin: 0px auto;
+  display: inline-block;
+  width: 130px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.App-link {
-  color: #09d3ac;
+.contents table.booking-table tr.table-contents td .status.confirm {
+  color: #11880d;
+  background-color: rgba(132, 212, 130, 0.18);
+}
+
+.contents table.booking-table tr.table-contents td .status.pending {
+  color: #858532;
+  background-color: rgba(178, 178, 57, 0.18);
+}
+
+.contents table.booking-table tr.table-contents td .status.cancel {
+  color: #f91818;
+  background-color: rgba(249, 24, 24, 0.18);
+}
+
+.contents table.booking-table tr.table-contents td:last-child {
+  width: 50px;
+}
+
+.contents table.booking-table tr.table-contents td:last-child span {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.addBtn {
+  height: 40px;
+  width: 200px;
+  background-color: rgba(106, 137, 204, 0.2);
+  color: #2c47c8;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.addBtn:focus {
+  outline: none;
+}
+
+.addBtn:hover {
+  -webkit-box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+}
+
+.addBtn:active {
+  outline: none;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+.filter {
+  margin-left: 15px;
+  border-bottom: 1px solid #2c47c8;
+}
+
+.filter span {
+  position: relative;
+  display: inline-block;
+}
+
+.filter span::after {
+  content: "";
+  position: absolute;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  top: 52%;
+  right: -16px;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+
+.navbar1-leftDiv-logo .logo {
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  color: #2c47c8;
+}
+
+.pageNo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 30px;
+}
+
+.pageNo .pages {
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pageNo .pages .pageCount,
+.pageNo .pages .pageCount-dot {
+  padding: 0 8px;
+}
+
+.pageNo .pages .prevPageArr,
+.pageNo .pages .nextPageArr {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #252841;
+  display: inline-block;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pageNo .pages .prevPageArr i,
+.pageNo .pages .nextPageArr i {
+  position: absolute;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.pageNo .pages .prevPageArr {
+  margin-right: 4px;
+}
+
+.pageNo .pages .prevPageArr i {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.pageNo .pages .nextPageArr {
+  margin-left: 4px;
+}
+
+.pageNo .pages .nextPageArr i {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
