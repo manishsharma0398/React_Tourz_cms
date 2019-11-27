@@ -1,10 +1,10 @@
 {
-  "bookings": [
+  "vehicles": [
     {
       "id": 1025626,
       "src": "DJL",
       "host": "John Doe",
-      "status": "Confirmed",
+      "status": "Free",
       "user": "Rudra",
       "date": "12-02-2013"
     },
@@ -20,7 +20,7 @@
       "id": 1025628,
       "src": "DJL",
       "host": "John Doe",
-      "status": "Confirmed",
+      "status": "On Trip",
       "user": "Rudra",
       "date": "12-02-2013"
     },
@@ -28,7 +28,7 @@
       "id": 1025629,
       "src": "DJL",
       "host": "John Doe",
-      "status": "Pending",
+      "status": "Confirmed",
       "user": "Rudra",
       "date": "12-02-2013"
     },
@@ -44,7 +44,7 @@
       "id": 1025631,
       "src": "DJL",
       "host": "John Doe",
-      "status": "Confirmed",
+      "status": "On Leave",
       "user": "Rudra",
       "date": "12-02-2013"
     },
@@ -52,7 +52,7 @@
       "id": 1025632,
       "src": "DJL",
       "host": "John Doe",
-      "status": "Cancelled",
+      "status": "Confirmed",
       "user": "Rudra",
       "date": "12-02-2013"
     },

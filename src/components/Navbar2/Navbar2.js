@@ -86,7 +86,21 @@ const Navbar2 = () => {
             </li>
           </ul>
         </li>
+
+        <li onClick={e => leg(e, 4)} className="nav-item nav-el for-mob">
+          <Link to="/settings" className="nav-link">
+            <span>Settings</span>
+          </Link>
+        </li>
+
+        <li onClick={e => leg(e, 5)} className="nav-item nav-el for-mob">
+          <Link to="/logout" className="nav-link">
+            <span>Logout</span>
+          </Link>
+        </li>
       </ul>
+
+      <p className="footer for-mob">Tourz 2019. A Product of Tourz Pvt. Ltd.</p>
     </div>
   );
 };

@@ -1,6 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+
 import RecentBookings from "./bookings/RecentBookings";
+import NewBookings from "./bookings/NewBookings";
+import AddVehicle from "./vehicles/AddVehicle";
+import Vehicles from "./vehicles/Vehicles";
 
 const Contents = () => {
   return (
@@ -13,13 +17,13 @@ const Contents = () => {
           <RecentBookings />
         </Route>
         <Route exact path="/home/bookings/new-booking">
-          New Bookings
+          <NewBookings />
         </Route>
         <Route exact path="/home/vehicles/vehicles">
-          Vehicles
+          <Vehicles />
         </Route>
         <Route exact path="/home/vehicles/add">
-          Add Vehicles
+          <AddVehicle />
         </Route>
         <Route exact path="/home/users/users">
           User

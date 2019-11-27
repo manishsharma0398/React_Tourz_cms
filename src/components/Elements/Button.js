@@ -2,9 +2,11 @@ import React from "react";
 
 const Button = props => {
   return (
-    <button className="addBtn" type="button">
-      {props.value}
-    </button>
+    <div className={"btn-div " + props.position}>
+      <button className="btn" type="button">
+        {props.value}
+      </button>
+    </div>
   );
 };
 
