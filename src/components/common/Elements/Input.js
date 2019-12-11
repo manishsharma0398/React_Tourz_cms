@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Input = props => {
   return (
@@ -10,12 +11,18 @@ const Input = props => {
         className="form-input"
         type={props.type}
         placeholder={props.placeholder}
+        required={props.required}
       />
       {props.feedback && (
         <span className="feedback error">{props.feedback}</span>
       )}
     </div>
   );
+};
+
+Input.defaultProps = {
+  required: false,
+  type: "text"
 };
 
 export default Input;

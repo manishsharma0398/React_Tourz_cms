@@ -10,25 +10,25 @@ const Contents = () => {
   return (
     <div className="contents">
       <Switch>
-        <Route exact path="/home/overview">
+        <Route exact path="/admin">
           overview
         </Route>
-        <Route exact path="/home/bookings/recent-bookings">
+        <Route exact path="/admin/bookings/recent">
           <RecentBookings />
         </Route>
-        <Route exact path="/home/bookings/new-booking">
+        <Route exact path="/admin/bookings/new">
           <NewBookings />
         </Route>
-        <Route exact path="/home/vehicles/vehicles">
+        <Route exact path="/admin/vehicles">
           <Vehicles />
         </Route>
-        <Route exact path="/home/vehicles/add">
+        <Route exact path="/admin/vehicles/add">
           <AddVehicle />
         </Route>
-        <Route exact path="/home/users/users">
+        <Route exact path="/admin/users">
           User
         </Route>
-        <Route exact path="/home/users/add">
+        <Route exact path="/admin/users/add">
           Add Users
         </Route>
       </Switch>

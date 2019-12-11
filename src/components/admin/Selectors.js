@@ -32,17 +32,17 @@ class Selectors extends Component {
     };
     return (
       <div className="selectors">
-        <div onClick={() => active(0)} className="home active">
-          <Link to="/home">
-            <img src={process.env.PUBLIC_URL + this.state.home} alt="" />
-          </Link>
-        </div>
+        <Link to="/admin" onClick={() => active(0)} className="home active">
+          <img src={process.env.PUBLIC_URL + this.state.home} alt="" />
+        </Link>
 
-        <div onClick={() => active(1)} className="settings">
-          <Link to="/settings">
-            <img src={process.env.PUBLIC_URL + this.state.settings} alt="" />
-          </Link>
-        </div>
+        <Link
+          to="/admin/settings"
+          onClick={() => active(1)}
+          className="settings"
+        >
+          <img src={process.env.PUBLIC_URL + this.state.settings} alt="" />
+        </Link>
       </div>
     );
   }

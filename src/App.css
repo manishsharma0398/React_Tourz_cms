@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Poppins:300,400,500,600&display=swap");
-.App {
+#App {
   font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 body,
@@ -45,15 +47,14 @@ html {
 }
 
 @media only screen and (min-width: 1200px) {
-  .App {
+  #App {
     max-width: 1240px;
     -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  }
-  .App {
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     width: 100%;
     margin-right: auto;
     margin-left: auto;
+    height: 100%;
   }
 }
 
@@ -84,6 +85,8 @@ html {
     grid-area: navbar1;
     height: 100%;
     padding: 0 50px 0 0;
+    height: 60px;
+    border: none;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -91,7 +94,7 @@ html {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .navbar1-leftDiv, .navbar1-rightDiv {
+  .navbar1-leftDiv, .navbar1-rightDiv, .navbar1-rightDiv-auth {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -153,23 +156,23 @@ html {
   .navbar1-leftDiv-searchForm .searchForm_input:focus {
     outline: none;
   }
-  .navbar1-rightDiv {
+  .navbar1-rightDiv-auth {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
-  .navbar1-rightDiv-notification, .navbar1-rightDiv-userType, .navbar1-rightDiv-userImg {
+  .navbar1-rightDiv-auth-notification, .navbar1-rightDiv-auth-userType, .navbar1-rightDiv-auth-userImg {
     padding-right: 18px;
   }
-  .navbar1-rightDiv-notification {
+  .navbar1-rightDiv-auth-notification {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .navbar1-rightDiv-notification img {
+  .navbar1-rightDiv-auth-notification img {
     width: 20px;
   }
-  .navbar1-rightDiv-userType {
+  .navbar1-rightDiv-auth-userType {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -181,29 +184,29 @@ html {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .navbar1-rightDiv-userType span {
+  .navbar1-rightDiv-auth-userType span {
     display: block;
     margin: 0;
     padding: 0;
   }
-  .navbar1-rightDiv-userType .userName {
+  .navbar1-rightDiv-auth-userType .userName {
     color: #2c47c8;
     font-weight: 500;
     line-height: 17px;
   }
-  .navbar1-rightDiv-userType .userType {
+  .navbar1-rightDiv-auth-userType .userType {
     font-size: 12px;
     line-height: 12px;
   }
-  .navbar1-rightDiv-userImg {
+  .navbar1-rightDiv-auth-userImg {
     position: relative;
     padding-right: 0;
   }
-  .navbar1-rightDiv-userImg img {
+  .navbar1-rightDiv-auth-userImg img {
     height: 40px;
     border-radius: 50%;
   }
-  .navbar1-rightDiv-userImg::after {
+  .navbar1-rightDiv-auth-userImg::after {
     content: "";
     position: absolute;
     width: 8px;
@@ -230,6 +233,7 @@ html {
   }
   .selectors .home,
   .selectors .settings {
+    display: block;
     padding: 35px 44px;
     position: relative;
     cursor: pointer;
@@ -249,7 +253,7 @@ html {
     position: absolute;
     border-left: 3px solid #2c47c8;
     top: 0;
-    left: -2px;
+    left: 0px;
     height: 100%;
   }
   .contents {
@@ -288,17 +292,32 @@ html {
 }
 
 @media (max-width: 500px) {
+  .landingPage {
+    height: 100%;
+    padding: 0 25px;
+  }
+  #App,
+  body {
+    position: relative;
+  }
+  body {
+    margin-top: 60px;
+    height: calc(100% - 60px);
+  }
+  #App {
+    height: 100%;
+  }
   .form-group {
     margin: 10px 0 !important;
   }
-  .App .navbar2 {
+  #App .navbar2 {
     padding: 0 25px;
   }
-  .App .selectors,
-  .App .activities {
+  #App .selectors,
+  #App .activities {
     display: none;
   }
-  .App .navbar1 {
+  #App .navbar1 {
     background-color: white;
     width: 100%;
     -webkit-box-shadow: inset 0 -1px 0 0 rgba(204, 204, 204, 0.96);
@@ -317,13 +336,13 @@ html {
         grid-template-rows: 60px;
         grid-template-areas: "photo logo toggler";
   }
-  .App .navbar1.show {
+  #App .navbar1.show {
     background-color: #252841;
     height: 60px;
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  .App .navbar1-leftDiv, .App .navbar1-rightDiv, .App .navbar1-toggler {
+  #App .navbar1-leftDiv, #App .navbar1-rightDiv-auth, #App .navbar1-toggler {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -331,7 +350,7 @@ html {
         -ms-flex-align: center;
             align-items: center;
   }
-  .App .navbar1-leftDiv {
+  #App .navbar1-leftDiv {
     -ms-grid-row: 1;
     -ms-grid-column: 2;
     grid-area: logo;
@@ -339,10 +358,13 @@ html {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .App .navbar1-leftDiv-searchForm {
+  #App .navbar1-leftDiv-searchForm {
     display: none;
   }
-  .App .navbar1-rightDiv {
+  #App .navbar1-rightDiv {
+    display: none;
+  }
+  #App .navbar1-rightDiv-auth {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: photo;
@@ -350,10 +372,10 @@ html {
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
-  .App .navbar1-rightDiv-notification, .App .navbar1-rightDiv-userType {
+  #App .navbar1-rightDiv-auth-notification, #App .navbar1-rightDiv-auth-userType {
     display: none;
   }
-  .App .navbar1-rightDiv-userImg {
+  #App .navbar1-rightDiv-auth-userImg {
     height: 100%;
     padding-right: 0;
     position: relative;
@@ -364,11 +386,11 @@ html {
         -ms-flex-align: center;
             align-items: center;
   }
-  .App .navbar1-rightDiv-userImg img {
+  #App .navbar1-rightDiv-auth-userImg img {
     height: 38px;
     border-radius: 50%;
   }
-  .App .navbar1-rightDiv-userImg::after {
+  #App .navbar1-rightDiv-auth-userImg::after {
     content: "";
     position: absolute;
     width: 9px;
@@ -378,7 +400,7 @@ html {
     right: -4px;
     top: 13px;
   }
-  .App .navbar1-toggler {
+  #App .navbar1-toggler {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
@@ -386,18 +408,18 @@ html {
     -ms-grid-column: 3;
     grid-area: toggler;
   }
-  .App .navbar1-toggler .wrapper {
+  #App .navbar1-toggler .wrapper {
     display: inline-block;
     position: relative;
     cursor: pointer;
     padding: 2px 0 2px 8px;
   }
-  .App .navbar1-toggler .circle {
+  #App .navbar1-toggler .circle {
     position: relative;
     width: 40px;
     height: 40px;
   }
-  .App .navbar1-toggler .line {
+  #App .navbar1-toggler .line {
     position: absolute;
     height: 3px;
     width: 100%;
@@ -406,38 +428,37 @@ html {
     -webkit-transition: all cubic-bezier(0.26, 0.1, 0.27, 1.55) 0.35s;
     transition: all cubic-bezier(0.26, 0.1, 0.27, 1.55) 0.35s;
   }
-  .App .navbar1-toggler .top {
+  #App .navbar1-toggler .top {
     top: 20%;
   }
-  .App .navbar1-toggler .middle {
+  #App .navbar1-toggler .middle {
     top: 44%;
     width: 60%;
     left: 40%;
   }
-  .App .navbar1-toggler .bottom {
+  #App .navbar1-toggler .bottom {
     top: 69%;
   }
-  .App .navbar1-toggler .icon.close .top {
+  #App .navbar1-toggler .icon.close .top {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
     top: 48%;
     width: 90%;
     background-color: white;
   }
-  .App .navbar1-toggler .icon.close .middle {
+  #App .navbar1-toggler .icon.close .middle {
     top: 48%;
     width: 0;
     background-color: white;
   }
-  .App .navbar1-toggler .icon.close .bottom {
+  #App .navbar1-toggler .icon.close .bottom {
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
     top: 48%;
     width: 90%;
     background-color: white;
   }
-  .App .navbar2 {
-    overflow-y: scroll;
+  #App .navbar2 {
     background-color: #252841;
     position: fixed;
     width: 100%;
@@ -463,48 +484,62 @@ html {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .App .navbar2.show {
+  #App .navbar2.show {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
-  .App .navbar2 .navbar-nav {
+  #App .navbar2 .navbar-nav {
     margin-top: 20px;
   }
-  .App .navbar2 .navbar-nav .nav-link,
-  .App .navbar2 .navbar-nav .dropdown-menu,
-  .App .navbar2 .navbar-nav .nav-link-dropdown {
+  #App .navbar2 .navbar-nav .nav-link,
+  #App .navbar2 .navbar-nav .dropdown-menu,
+  #App .navbar2 .navbar-nav .nav-link-dropdown {
     color: white;
     font-family: "Poppins", sans-serif;
   }
-  .App .navbar2 .navbar-nav .nav-item.active::before,
-  .App .navbar2 .navbar-nav .nav-dropdown.active::before {
+  #App .navbar2 .navbar-nav .nav-item:hover,
+  #App .navbar2 .navbar-nav .nav-dropdown:hover {
+    background-color: #2b2e424b;
+    background-color: transparent;
+  }
+  #App .navbar2 .navbar-nav .nav-item.active .nav-link,
+  #App .navbar2 .navbar-nav .nav-item.active .dropdown-menu,
+  #App .navbar2 .navbar-nav .nav-dropdown.active .nav-link,
+  #App .navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu {
+    color: #2c47c8;
+  }
+  #App .navbar2 .navbar-nav .nav-item.active::before,
+  #App .navbar2 .navbar-nav .nav-dropdown.active::before {
     display: none;
   }
-  .App .navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu.expand,
-  .App .navbar2 .navbar-nav .nav-dropdown.expand .dropdown-menu.expand {
+  #App .navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu.expand,
+  #App .navbar2 .navbar-nav .nav-dropdown.expand .dropdown-menu.expand {
     padding-top: 3px;
   }
-  .App .navbar2 .navbar-nav .nav-item .nav-link {
+  #App .navbar2 .navbar-nav .nav-item .nav-link {
     padding: 5px 0 5px 20px;
   }
-  .App .navbar2 .navbar-nav .nav-dropdown .dropdown-menu {
+  #App .navbar2 .navbar-nav .nav-dropdown .dropdown-menu {
     padding: 5px 0 5px 20px;
     display: block;
   }
-  .App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links {
+  #App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links {
     list-style-type: none;
   }
-  .App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown a.nav-link-dropdown {
+  #App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown.active .nav-link-dropdown {
+    color: #2c47c8;
+  }
+  #App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown a.nav-link-dropdown {
     padding-top: 4px;
   }
-  .App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown:last-child {
+  #App .navbar2 .navbar-nav .nav-dropdown ul.dropdown-menu-links li.nav-item-dropdown:last-child {
     padding-bottom: 5px;
   }
-  .App .contents {
+  #App .contents {
     margin-top: 60px;
     padding: 20px 15px;
   }
-  .App .row-inputs {
+  #App .row-inputs {
     margin: 20px 0;
   }
 }
@@ -576,7 +611,6 @@ html {
 }
 
 .navbar2 .navbar-nav .nav-dropdown.expand .dropdown-menu span::after {
-  border: solid #2c47c8;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -811,6 +845,12 @@ html {
           justify-content: flex-end;
 }
 
+.btn-div.center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .btn-div.left {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -862,14 +902,14 @@ html {
 }
 
 @media (min-width: 500px) {
-  .navbar2 .navbar-nav .dropdown-menu {
+  .navbar2 .navbar-nav .nav-dropdown .dropdown-menu {
     padding: 15px 0 15px 20px;
     display: block;
   }
-  .navbar2 .navbar-nav .dropdown-menu span {
+  .navbar2 .navbar-nav .nav-dropdown .dropdown-menu span {
     position: relative;
   }
-  .navbar2 .navbar-nav .dropdown-menu span::after {
+  .navbar2 .navbar-nav .nav-dropdown .dropdown-menu span::after {
     content: "";
     position: absolute;
     border: solid black;
@@ -899,6 +939,14 @@ html {
   .btn-div .btn {
     width: 150px;
   }
+  .navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu span {
+    position: relative;
+  }
+  .navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu span::before, .navbar2 .navbar-nav .nav-dropdown.active .dropdown-menu span::after {
+    content: "";
+    position: absolute;
+    background-color: #2c47c8;
+  }
   .navbar2 .navbar-nav .dropdown-menu {
     padding: 15px 0 15px 20px;
     display: block;
@@ -927,9 +975,6 @@ html {
     width: 15px;
     height: 1.5px;
   }
-  .navbar2 .navbar-nav .nav-dropdown .dropdown-menu.expand span::before, .navbar2 .navbar-nav .nav-dropdown .dropdown-menu.expand span::after {
-    background-color: #2c47c8;
-  }
   .navbar2 .navbar-nav .nav-dropdown .dropdown-menu.expand span::after {
     border: 0;
     padding: 0;
@@ -937,4 +982,140 @@ html {
             transform: translate(50%) rotate(0);
     top: 10px;
   }
+}
+
+.auth {
+  height: calc(100% - 60px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 25px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.auth .login,
+.auth .register {
+  padding-top: 30px;
+}
+
+.auth .login .btn-div,
+.auth .register .btn-div {
+  padding-top: 30px;
+}
+
+/* Center the loader */
+#loader {
+  position: absolute;
+  background-color: white;
+  top: -60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#loader .spinner {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #2c47c8;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.landingPage {
+  height: calc(100% - 60px);
+}
+
+.dropdown-menu {
+  cursor: pointer;
+}
+
+.others {
+  height: 100%;
+}
+
+.others .navbar2,
+.others .navbar1-leftDiv-searchForm {
+  display: none;
+}
+
+.others .navbar1-leftDiv-logo {
+  border: none;
+}
+
+.others .navbar1 {
+  -webkit-box-shadow: inset 0 -1px 0 0 rgba(204, 204, 204, 0.96);
+          box-shadow: inset 0 -1px 0 0 rgba(204, 204, 204, 0.96);
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.others .navbar1 .navbar1-leftDiv {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.others .navbar1 .navbar1-leftDiv-logo {
+  width: auto;
+}
+
+.navbar1-rightDiv .navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar1-rightDiv .navbar-nav .nav-item:not(:last-child) {
+  margin-right: 5px;
+}
+
+.navbar1-rightDiv .navbar-nav .nav-item .nav-link {
+  text-decoration: none;
+  color: black;
 }

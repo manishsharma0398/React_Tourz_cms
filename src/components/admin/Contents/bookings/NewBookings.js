@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Button from "../../Elements/Button";
+import Button from "../../../common/Elements/Button";
 
-import Input from "../../Elements/Input";
+import Input from "../../../common/Elements/Input";
 
 class NewBooking extends Component {
   state = {

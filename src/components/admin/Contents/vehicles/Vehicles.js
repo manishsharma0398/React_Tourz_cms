@@ -1,18 +1,21 @@
 import React from "react";
-import Bookings from "./bookings.json";
-import Button from "../../Elements/Button";
-import Filter from "../../Elements/Filter";
-import PageNo from "../../Elements/PageNo";
+import VehicleList from "./vehicles.json";
+import Button from "../../../common/Elements/Button";
+import Filter from "../../../common/Elements/Filter";
+import PageNo from "../../../common/Elements/PageNo";
 
-const RecentBookings = () => {
+const Vehicles = () => {
   const statusChecker = status => {
-    if (status === "Pending") {
+    if (status === "On Trip") {
       return "pending";
     }
     if (status === "Confirmed") {
       return "confirm";
     }
-    if (status === "Cancelled") {
+    if (status === "Free") {
+      return "confirm";
+    }
+    if (status === "On Leave") {
       return "cancel";
     }
   };
@@ -30,18 +33,18 @@ const RecentBookings = () => {
       <table className="booking-table">
         <thead>
           <tr className="table-head">
-            <th>Booking ID</th>
-            <th>Source</th>
-            <th>Host</th>
-            <th>Booking Status</th>
-            <th>User</th>
-            <th>Date</th>
+            <th>Vehicle ID</th>
+            <th>Model</th>
+            <th>Driver</th>
+            <th>Vehicle Status</th>
+            <th>Vehicle Number</th>
+            <th>Date of Registration</th>
             <th></th>
           </tr>
         </thead>
 
         <tbody>
-          {Bookings.bookings.map((b, i) => {
+          {VehicleList.vehicles.map((b, i) => {
             return (
               <tr key={b.id} className="table-contents">
                 <td>{b.id}</td>
@@ -56,11 +59,7 @@ const RecentBookings = () => {
                 <td>{b.user}</td>
                 <td>{b.date}</td>
                 <td>
-                  <div className="actions">
-                    <span className="dot top"></span>
-                    <span className="dot middle"></span>
-                    <span className="dot bottom"></span>
-                  </div>
+                  <span>...</span>
                 </td>
               </tr>
             );
@@ -73,4 +72,4 @@ const RecentBookings = () => {
   );
 };
 
-export default RecentBookings;
+export default Vehicles;

@@ -3,7 +3,7 @@ import React from "react";
 const Button = props => {
   return (
     <div className={"btn-div " + props.position}>
-      <button className="btn" type="button">
+      <button type={props.type} className="btn">
         {props.value}
       </button>
     </div>
